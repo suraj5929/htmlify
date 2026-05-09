@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PR_TITLE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+:root{--bg:#0a0e1a;--surface:#111827;--border:#1e2d45;--text:#e2e8f0;--muted:#64748b;--blue:#3b82f6;--green:#10b981;--red:#ef4444;--amber:#f59e0b;--purple:#8b5cf6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.7;padding:2rem;max-width:1000px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.25rem}
+.meta{font-size:0.82rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap}
+.badge{display:inline-block;font-size:0.68rem;font-family:'IBM Plex Mono',monospace;padding:0.15rem 0.5rem;border-radius:4px;font-weight:600}
+.badge-green{background:rgba(16,185,129,0.15);color:var(--green)}
+.badge-amber{background:rgba(245,158,11,0.15);color:var(--amber)}
+.badge-red{background:rgba(239,68,68,0.15);color:var(--red)}
+.badge-blue{background:rgba(59,130,246,0.15);color:var(--blue)}
+.badge-purple{background:rgba(139,92,246,0.15);color:var(--purple)}
+.summary{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:8px;padding:1.1rem 1.4rem;margin-bottom:1.5rem;font-size:0.9rem;color:#94a3b8}
+.summary strong{color:var(--text)}
+.section-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.diff{background:#0d1117;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem;font-family:'IBM Plex Mono',monospace;font-size:0.78rem}
+.diff-file{background:var(--surface);padding:0.45rem 1rem;color:var(--muted);border-bottom:1px solid var(--border);font-size:0.72rem}
+.diff-line{padding:0.08rem 1rem;line-height:1.65}
+.diff-add{background:rgba(16,185,129,0.08);color:#6ee7b7}
+.diff-remove{background:rgba(239,68,68,0.08);color:#fca5a5}
+.diff-ctx{color:#374151}
+.diff-hunk{color:#1e3a5f;background:rgba(59,130,246,0.05);padding:0.08rem 1rem;font-size:0.72rem}
+.files{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem}
+.file-row{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;font-size:0.85rem}
+.file-name{font-family:'IBM Plex Mono',monospace;color:#94a3b8}
+.file-changes{font-family:'IBM Plex Mono',monospace;font-size:0.75rem}
+.adds{color:var(--green)}.removes{color:var(--red)}
+.annotations{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem}
+.annotation{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:0.9rem 1.1rem}
+.annotation-label{font-size:0.68rem;font-family:'IBM Plex Mono',monospace;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem}
+.annotation-text{font-size:0.875rem;color:#94a3b8}
+footer{border-top:1px solid var(--border);padding-top:1rem;margin-top:2rem;font-size:0.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+</style>
+</head>
+<body>
+<h1>PR_TITLE</h1>
+<div class="meta">
+<span>PR_AUTHOR</span><span>·</span><span>PR_DATE</span><span>·</span>
+<span class="badge badge-purple">PR_BRANCH</span>
+<span class="badge badge-blue">PR_STATUS</span>
+<span class="badge RISK_CLASS">RISK_LABEL risk</span>
+</div>
+<div class="summary"><strong>What changed — </strong>CHANGE_SUMMARY</div>
+<div class="section-title">Diff</div>
+<div class="diff">
+<div class="diff-file">FILE_1_PATH</div>
+<div class="diff-hunk">@@ HUNK_1 @@</div>
+<div class="diff-ctx">CTX_LINE_1</div>
+<div class="diff-remove">- REMOVE_LINE_1</div>
+<div class="diff-remove">- REMOVE_LINE_2</div>
+<div class="diff-add">+ ADD_LINE_1</div>
+<div class="diff-add">+ ADD_LINE_2</div>
+<div class="diff-add">+ ADD_LINE_3</div>
+<div class="diff-ctx">CTX_LINE_2</div>
+<div class="diff-file">FILE_2_PATH</div>
+<div class="diff-hunk">@@ HUNK_2 @@</div>
+<div class="diff-ctx">CTX_LINE_3</div>
+<div class="diff-remove">- REMOVE_LINE_3</div>
+<div class="diff-add">+ ADD_LINE_4</div>
+<div class="diff-add">+ ADD_LINE_5</div>
+<div class="diff-ctx">CTX_LINE_4</div>
+</div>
+<div class="section-title">Files changed</div>
+<div class="files">
+<div class="file-row"><span class="file-name">FILE_1_PATH</span><span class="file-changes"><span class="adds">+ADDS_1</span> <span class="removes">-REMOVES_1</span></span></div>
+<div class="file-row"><span class="file-name">FILE_2_PATH</span><span class="file-changes"><span class="adds">+ADDS_2</span> <span class="removes">-REMOVES_2</span></span></div>
+<div class="file-row"><span class="file-name">FILE_3_PATH</span><span class="file-changes"><span class="adds">+ADDS_3</span> <span class="removes">-REMOVES_3</span></span></div>
+<div class="file-row"><span class="file-name">FILE_4_PATH</span><span class="file-changes"><span class="adds">+ADDS_4</span> <span class="removes">-REMOVES_4</span></span></div>
+</div>
+<div class="section-title">Annotations</div>
+<div class="annotations">
+<div class="annotation"><div class="annotation-label">ANNOTATION_1_LABEL</div><div class="annotation-text">ANNOTATION_1_TEXT</div></div>
+<div class="annotation"><div class="annotation-label">ANNOTATION_2_LABEL</div><div class="annotation-text">ANNOTATION_2_TEXT</div></div>
+<div class="annotation"><div class="annotation-label">ANNOTATION_3_LABEL</div><div class="annotation-text">ANNOTATION_3_TEXT</div></div>
+</div>
+<footer>FOOTER_TEXT</footer>
+</body>
+</html>

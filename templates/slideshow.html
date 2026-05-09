@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DECK_TITLE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+:root{--bg:#0a0e1a;--surface:#111827;--border:#1e2d45;--text:#e2e8f0;--muted:#64748b;--blue:#3b82f6;--teal:#14b8a6;--purple:#8b5cf6;--amber:#f59e0b;--green:#10b981}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column}
+.progress{height:2px;background:var(--border);flex-shrink:0}
+.progress-bar{height:100%;background:var(--blue);transition:width 0.3s ease}
+.deck{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:3rem 4rem;text-align:center;opacity:0;transition:opacity 0.2s}
+.slide.active{display:flex;opacity:1}
+.slide-num{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:1.2rem}
+.slide h2{font-size:2.2rem;font-weight:600;letter-spacing:-0.03em;line-height:1.2;margin-bottom:1.2rem;max-width:750px}
+.slide h2 em{color:var(--blue);font-style:normal}
+.slide .lead{font-size:1.05rem;color:#94a3b8;max-width:600px;margin-bottom:1.5rem}
+.points{list-style:none;text-align:left;max-width:580px;display:flex;flex-direction:column;gap:0.6rem;width:100%}
+.points li{font-size:0.95rem;color:#94a3b8;padding-left:1.3rem;position:relative;line-height:1.5}
+.points li::before{content:'→';position:absolute;left:0;color:var(--blue)}
+.points li strong{color:var(--text)}
+.highlight{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.9rem;color:#94a3b8;max-width:580px;text-align:left}
+.highlight strong{color:var(--text)}
+.tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;margin-bottom:1rem}
+.tag.blue{background:rgba(59,130,246,0.15);color:var(--blue)}
+.tag.teal{background:rgba(20,184,166,0.15);color:var(--teal)}
+.tag.purple{background:rgba(139,92,246,0.15);color:var(--purple)}
+.tag.amber{background:rgba(245,158,11,0.15);color:var(--amber)}
+.tag.green{background:rgba(16,185,129,0.15);color:var(--green)}
+.nav{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.9rem;border-top:1px solid var(--border);flex-shrink:0}
+.nav-btn{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:0.78rem;padding:0.4rem 1rem;border-radius:4px;cursor:pointer;transition:border-color 0.15s}
+.nav-btn:hover{border-color:var(--blue)}
+.nav-counter{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);min-width:50px;text-align:center}
+</style>
+</head>
+<body>
+<div class="progress"><div class="progress-bar" id="pb"></div></div>
+<div class="deck" id="deck">
+<div class="slide">
+<div class="slide-num">01 / TOTAL_SLIDES</div>
+<div class="tag blue">SLIDE_1_TAG</div>
+<h2><em>SLIDE_1_KEYWORD</em> SLIDE_1_REST</h2>
+<p class="lead">SLIDE_1_LEAD</p>
+</div>
+<div class="slide">
+<div class="slide-num">02 / TOTAL_SLIDES</div>
+<div class="tag teal">SLIDE_2_TAG</div>
+<h2>SLIDE_2_TITLE</h2>
+<ul class="points">
+<li><strong>POINT_2_1_BOLD</strong> — POINT_2_1_TEXT</li>
+<li><strong>POINT_2_2_BOLD</strong> — POINT_2_2_TEXT</li>
+<li><strong>POINT_2_3_BOLD</strong> — POINT_2_3_TEXT</li>
+</ul>
+</div>
+<div class="slide">
+<div class="slide-num">03 / TOTAL_SLIDES</div>
+<div class="tag purple">SLIDE_3_TAG</div>
+<h2>SLIDE_3_TITLE</h2>
+<ul class="points">
+<li><strong>POINT_3_1_BOLD</strong> — POINT_3_1_TEXT</li>
+<li><strong>POINT_3_2_BOLD</strong> — POINT_3_2_TEXT</li>
+<li><strong>POINT_3_3_BOLD</strong> — POINT_3_3_TEXT</li>
+</ul>
+<div class="highlight"><strong>KEY INSIGHT — </strong>INSIGHT_3</div>
+</div>
+<div class="slide">
+<div class="slide-num">04 / TOTAL_SLIDES</div>
+<div class="tag amber">SLIDE_4_TAG</div>
+<h2>SLIDE_4_TITLE</h2>
+<ul class="points">
+<li><strong>POINT_4_1_BOLD</strong> — POINT_4_1_TEXT</li>
+<li><strong>POINT_4_2_BOLD</strong> — POINT_4_2_TEXT</li>
+<li><strong>POINT_4_3_BOLD</strong> — POINT_4_3_TEXT</li>
+</ul>
+</div>
+<div class="slide">
+<div class="slide-num">05 / TOTAL_SLIDES</div>
+<div class="tag green">SLIDE_5_TAG</div>
+<h2>SLIDE_5_TITLE</h2>
+<ul class="points">
+<li><strong>POINT_5_1_BOLD</strong> — POINT_5_1_TEXT</li>
+<li><strong>POINT_5_2_BOLD</strong> — POINT_5_2_TEXT</li>
+<li><strong>POINT_5_3_BOLD</strong> — POINT_5_3_TEXT</li>
+</ul>
+<div class="highlight"><strong>TAKEAWAY — </strong>TAKEAWAY_TEXT</div>
+</div>
+</div>
+<div class="nav">
+<button class="nav-btn" id="prev">← Prev</button>
+<span class="nav-counter" id="ctr">1 / 5</span>
+<button class="nav-btn" id="next">Next →</button>
+</div>
+<script>
+const slides=document.querySelectorAll('.slide'),pb=document.getElementById('pb'),ctr=document.getElementById('ctr');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');ctr.textContent=`${cur+1} / ${slides.length}`;pb.style.width=`${((cur+1)/slides.length)*100}%`}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')show(cur+1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')show(cur-1)});
+show(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOPIC_TITLE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+:root{--bg:#0a0e1a;--surface:#111827;--border:#1e2d45;--text:#e2e8f0;--muted:#64748b;--blue:#3b82f6;--teal:#14b8a6;--purple:#8b5cf6;--amber:#f59e0b;--green:#10b981}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.7;padding:2rem;max-width:1000px;margin:0 auto}
+h1{font-size:2rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.25rem}
+h1 span{color:var(--blue)}
+.subtitle{font-size:0.9rem;color:var(--muted);margin-bottom:1.5rem}
+.summary{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;font-size:0.95rem;color:#94a3b8}
+.summary strong{color:var(--text)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.metric-label{font-size:0.68rem;font-family:'IBM Plex Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.metric-value{font-size:1.3rem;font-weight:600;font-family:'IBM Plex Mono',monospace;margin-top:0.2rem}
+.metric-value.blue{color:var(--blue)}.metric-value.teal{color:var(--teal)}.metric-value.purple{color:var(--purple)}.metric-value.amber{color:var(--amber)}.metric-value.green{color:var(--green)}
+.section-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.diagram{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:2rem;min-height:180px;display:flex;align-items:center;justify-content:center}
+.flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:2rem}
+.flow-step{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.1rem;font-size:0.82rem;text-align:center;min-width:110px}
+.flow-step .step-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);margin-bottom:0.2rem}
+.flow-step .step-label{font-weight:600;color:var(--text)}
+.flow-arrow{color:var(--border);font-size:1.2rem;padding:0 0.4rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem}
+.card-tag{font-size:0.65rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem}
+.card-tag.blue{color:var(--blue)}.card-tag.teal{color:var(--teal)}.card-tag.purple{color:var(--purple)}.card-tag.amber{color:var(--amber)}.card-tag.green{color:var(--green)}
+.card-title{font-weight:600;font-size:0.95rem;margin-bottom:0.4rem}
+.card-desc{font-size:0.83rem;color:#94a3b8;line-height:1.6}
+.code-block{background:#0d1117;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem}
+.code-header{background:var(--surface);padding:0.4rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);border-bottom:1px solid var(--border)}
+.code-body{padding:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;line-height:1.7;color:#e2e8f0;overflow-x:auto;white-space:pre}
+footer{border-top:1px solid var(--border);padding-top:1rem;margin-top:2rem;font-size:0.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+</style>
+</head>
+<body>
+<h1><span>TOPIC_KEYWORD</span> TOPIC_REST</h1>
+<p class="subtitle">TOPIC_SUBTITLE</p>
+<div class="summary"><strong>TL;DR — </strong>SUMMARY_TEXT</div>
+<div class="metrics">
+<div class="metric"><div class="metric-label">METRIC_1_LABEL</div><div class="metric-value blue">METRIC_1_VALUE</div></div>
+<div class="metric"><div class="metric-label">METRIC_2_LABEL</div><div class="metric-value teal">METRIC_2_VALUE</div></div>
+<div class="metric"><div class="metric-label">METRIC_3_LABEL</div><div class="metric-value purple">METRIC_3_VALUE</div></div>
+<div class="metric"><div class="metric-label">METRIC_4_LABEL</div><div class="metric-value amber">METRIC_4_VALUE</div></div>
+</div>
+<div class="section-title">How it works</div>
+<div class="flow">
+<div class="flow-step"><div class="step-num">01</div><div class="step-label">STEP_1</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><div class="step-num">02</div><div class="step-label">STEP_2</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><div class="step-num">03</div><div class="step-label">STEP_3</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><div class="step-num">04</div><div class="step-label">STEP_4</div></div>
+</div>
+<div class="section-title">Core concepts</div>
+<div class="cards">
+<div class="card"><div class="card-tag blue">CARD_1_TAG</div><div class="card-title">CARD_1_TITLE</div><div class="card-desc">CARD_1_DESC</div></div>
+<div class="card"><div class="card-tag teal">CARD_2_TAG</div><div class="card-title">CARD_2_TITLE</div><div class="card-desc">CARD_2_DESC</div></div>
+<div class="card"><div class="card-tag purple">CARD_3_TAG</div><div class="card-title">CARD_3_TITLE</div><div class="card-desc">CARD_3_DESC</div></div>
+<div class="card"><div class="card-tag amber">CARD_4_TAG</div><div class="card-title">CARD_4_TITLE</div><div class="card-desc">CARD_4_DESC</div></div>
+</div>
+<div class="section-title">Code example</div>
+<div class="code-block">
+<div class="code-header">CODE_LANG — CODE_DESCRIPTION</div>
+<div class="code-body">CODE_EXAMPLE</div>
+</div>
+<footer>FOOTER_TEXT</footer>
+</body>
+</html>

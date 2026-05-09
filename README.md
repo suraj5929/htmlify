@@ -79,8 +79,8 @@ Builds a fully navigable slide deck (arrow keys or Prev/Next buttons) with a pro
 | Layer | Technology |
 |---|---|
 | Frontend | React + Vite + Tailwind CSS v3 |
-| Backend | Node.js + Express |
-| AI | Claude Haiku (`claude-haiku-4-5`) via Anthropic SDK |
+| Backend | Python + Flask |
+| AI | Claude Haiku (`claude-haiku-4-5`) via Anthropic Python SDK |
 | Streaming | Server-Sent Events (SSE) |
 | Templates | Pre-built HTML skeletons (saves 60–70% output tokens) |
 
@@ -96,12 +96,13 @@ htmlify/
 │       └── components/
 │           ├── PromptPanel.jsx
 │           └── PreviewPanel.jsx
-├── backend/                ← Node.js API server
-│   ├── index.js
+├── backend/                ← Python Flask API server
+│   ├── app.py              ← Flask app entry point
+│   ├── requirements.txt    ← Python dependencies
 │   ├── routes/
-│   │   └── generate.js     ← SSE streaming route
+│   │   └── generate.py     ← SSE streaming route (Blueprint)
 │   └── prompts/
-│       └── index.js        ← System + user prompt builders
+│       └── __init__.py     ← System + user prompt builders
 └── templates/              ← HTML skeletons (token optimization)
     ├── explainer.html
     ├── report.html
@@ -115,34 +116,51 @@ htmlify/
 
 ## Getting Started
 
-### 1. Clone and install
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/suraj5929/htmlify.git
 cd htmlify
-
-# Install frontend deps
-cd frontend && npm install && cd ..
-
-# Install backend deps
-cd backend && npm install && cd ..
 ```
 
-### 2. Add your API key
+### 2. Set up the backend
 
 ```bash
-# backend/.env
+cd backend
+
+# Create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate        # macOS / Linux
+# venv\Scripts\activate         # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 3. Add your API key
+
+Create `backend/.env`:
+
+```bash
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 PORT=3001
 ```
 
 Get your key at [console.anthropic.com](https://console.anthropic.com).
 
-### 3. Run
+### 4. Set up the frontend
 
 ```bash
-# Terminal 1 — backend
-cd backend && node --watch index.js
+cd frontend
+npm install
+```
+
+### 5. Run
+
+```bash
+# Terminal 1 — backend (from backend/ with venv active)
+source venv/bin/activate
+python3 app.py
 
 # Terminal 2 — frontend
 cd frontend && npm run dev
@@ -155,9 +173,9 @@ Open **http://localhost:5173**, pick a template, write a prompt, click **Generat
 ## How It Works
 
 1. You pick a template and write a prompt in the left panel
-2. Frontend sends a `POST /api/generate` request to the backend
+2. Frontend sends a `POST /api/generate` request to the Flask backend
 3. Backend calls Claude Haiku with the system prompt + skeleton template + your prompt
-4. Claude streams back HTML via Server-Sent Events
+4. Claude streams back HTML via Server-Sent Events (SSE)
 5. The iframe in the preview panel updates live as HTML arrives
 6. Download the finished page as a `.html` file — fully self-contained
 
